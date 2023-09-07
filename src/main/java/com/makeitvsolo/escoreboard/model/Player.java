@@ -1,5 +1,7 @@
 package com.makeitvsolo.escoreboard.model;
 
+import com.makeitvsolo.escoreboard.core.unique.Unique;
+
 import java.util.UUID;
 
 public final class Player {
