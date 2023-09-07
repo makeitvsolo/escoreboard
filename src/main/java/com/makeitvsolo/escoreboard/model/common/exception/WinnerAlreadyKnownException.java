@@ -1,4 +1,4 @@
-package com.makeitvsolo.escoreboard.model.exception;
+package com.makeitvsolo.escoreboard.model.common.exception;
 
 import com.makeitvsolo.escoreboard.core.exception.ETennisException;
 
