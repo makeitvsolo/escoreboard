@@ -21,6 +21,22 @@ public final class Match {
         return new Match(id.unique(), playerOne, playerTwo, winner);
     }
 
+    public UUID id() {
+        return id;
+    }
+
+    public Player playerOne() {
+        return playerOne;
+    }
+
+    public Player playerTwo() {
+        return playerTwo;
+    }
+
+    public Player winner() {
+        return winner;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
