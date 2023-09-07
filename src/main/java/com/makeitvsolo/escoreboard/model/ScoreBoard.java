@@ -1,7 +1,7 @@
 package com.makeitvsolo.escoreboard.model;
 
 import com.makeitvsolo.escoreboard.core.unique.Unique;
-import com.makeitvsolo.escoreboard.model.exception.MatchAlreadyFinishedException;
+import com.makeitvsolo.escoreboard.model.exception.WinnerAlreadyKnownException;
 
 import java.util.Optional;
 import java.util.UUID;
@@ -21,8 +21,13 @@ public final class ScoreBoard {
         this.state = state;
     }
 
-    public static ScoreBoard startNewMatch(Unique<UUID> matchId, Player playerOne, Player playerTwo) {
-        return new ScoreBoard(matchId.unique(), playerOne, playerTwo, Score.initial(), ScoreState.MatchIsOngoing);
+    public static ScoreBoard startNewMatch(
+            Unique<UUID> matchId,
+            Player playerOne,
+            Player playerTwo,
+            Zero<Score> score
+    ) {
+        return new ScoreBoard(matchId.unique(), playerOne, playerTwo, score.zero(), ScoreState.MatchIsOngoing);
     }
 
     public UUID matchId() {
@@ -54,7 +59,7 @@ public final class ScoreBoard {
             }
 
             case PlayerOneWin, PlayerTwoWin -> {
-                throw new MatchAlreadyFinishedException(matchId);
+                throw new WinnerAlreadyKnownException(matchId);
             }
         }
     }
