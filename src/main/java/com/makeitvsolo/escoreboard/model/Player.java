@@ -17,6 +17,14 @@ public final class Player {
         return new Player(id.unique(), name);
     }
 
+    public UUID id() {
+        return id;
+    }
+
+    public String name() {
+        return name;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
