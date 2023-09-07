@@ -1,6 +1,7 @@
 package com.makeitvsolo.escoreboard.model;
 
 import com.makeitvsolo.escoreboard.core.unique.Unique;
+import com.makeitvsolo.escoreboard.model.exception.MatchIsOngoingException;
 
 import java.util.UUID;
 
@@ -17,8 +18,14 @@ public final class Match {
         this.winner = winner;
     }
 
-    public static Match result(Unique<UUID> id, Player playerOne, Player playerTwo, Player winner) {
-        return new Match(id.unique(), playerOne, playerTwo, winner);
+    public static Match resultFrom(ScoreBoard scoreBoard) {
+        return new Match(
+                scoreBoard.matchId(),
+                scoreBoard.playerOne(),
+                scoreBoard.playerTwo(),
+                scoreBoard.winner().
+                        orElseThrow(() -> new MatchIsOngoingException(scoreBoard.matchId()))
+        );
     }
 
     public UUID id() {
