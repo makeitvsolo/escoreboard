@@ -4,7 +4,7 @@ import com.makeitvsolo.escoreboard.core.unique.Unique;
 import com.makeitvsolo.escoreboard.model.scoring.Score;
 import com.makeitvsolo.escoreboard.model.scoring.ScoreState;
 import com.makeitvsolo.escoreboard.model.scoring.Zero;
-import com.makeitvsolo.escoreboard.model.common.exception.WinnerAlreadyKnownException;
+import com.makeitvsolo.escoreboard.model.match.exception.WinnerAlreadyKnownException;
 
 import java.util.Optional;
 import java.util.UUID;
