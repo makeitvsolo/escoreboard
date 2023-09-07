@@ -1,7 +1,6 @@
-package com.makeitvsolo.escoreboard.model;
+package com.makeitvsolo.escoreboard.model.match;
 
-import com.makeitvsolo.escoreboard.core.unique.Unique;
-import com.makeitvsolo.escoreboard.model.exception.MatchIsOngoingException;
+import com.makeitvsolo.escoreboard.model.common.exception.MatchIsOngoingException;
 
 import java.util.UUID;
 

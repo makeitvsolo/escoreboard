@@ -1,6 +1,6 @@
-package com.makeitvsolo.escoreboard.model;
+package com.makeitvsolo.escoreboard.model.match;
 
-import com.makeitvsolo.escoreboard.model.exception.MatchIsOngoingException;
+import com.makeitvsolo.escoreboard.model.common.exception.MatchIsOngoingException;
 import org.junit.jupiter.api.*;
 import org.mockito.Mock;
 import org.mockito.Mockito;

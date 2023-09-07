@@ -1,4 +1,4 @@
-package com.makeitvsolo.escoreboard.model;
+package com.makeitvsolo.escoreboard.model.match;
 
 import com.makeitvsolo.escoreboard.core.unique.Unique;
 
