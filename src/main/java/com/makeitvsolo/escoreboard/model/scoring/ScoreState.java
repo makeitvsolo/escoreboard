@@ -1,4 +1,4 @@
-package com.makeitvsolo.escoreboard.model;
+package com.makeitvsolo.escoreboard.model.scoring;
 
 public enum ScoreState {
     MatchIsOngoing, PlayerOneWin, PlayerTwoWin;

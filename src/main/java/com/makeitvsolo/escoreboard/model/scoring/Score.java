@@ -1,4 +1,4 @@
-package com.makeitvsolo.escoreboard.model;
+package com.makeitvsolo.escoreboard.model.scoring;
 
 import java.util.UUID;
 
