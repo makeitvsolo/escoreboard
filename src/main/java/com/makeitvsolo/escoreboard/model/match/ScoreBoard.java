@@ -1,6 +1,8 @@
 package com.makeitvsolo.escoreboard.model.match;
 
 import com.makeitvsolo.escoreboard.core.unique.Unique;
+import com.makeitvsolo.escoreboard.model.match.exception.PlayerIsOutMatchException;
+import com.makeitvsolo.escoreboard.model.scoring.PlayerNumber;
 import com.makeitvsolo.escoreboard.model.scoring.Score;
 import com.makeitvsolo.escoreboard.model.scoring.ScoreState;
 import com.makeitvsolo.escoreboard.model.scoring.Zero;
@@ -55,10 +57,22 @@ public final class ScoreBoard {
         };
     }
 
+    public PlayerNumber numberOf(UUID playerId) {
+        if (playerId.equals(playerOne.id())) {
+            return PlayerNumber.One;
+        }
+
+        if (playerId.equals(playerTwo.id())) {
+            return PlayerNumber.Two;
+        }
+
+        throw new PlayerIsOutMatchException(matchId, playerId);
+    }
+
     public void pointFor(UUID playerId) {
         switch (state) {
             case UnknownWinner -> {
-                state = score.pointFor(playerId);
+                state = score.pointFor(numberOf(playerId));
             }
 
             case PlayerOneWin, PlayerTwoWin -> {
