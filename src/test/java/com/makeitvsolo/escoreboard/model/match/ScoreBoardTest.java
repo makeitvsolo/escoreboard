@@ -69,7 +69,7 @@ public class ScoreBoardTest {
         @DisplayName("players can earn points and match continues")
         public void playersCanEarnPoints() {
             Mockito.when(score.pointFor(playerOne.id()))
-                    .thenReturn(ScoreState.MatchIsOngoing);
+                    .thenReturn(ScoreState.UnknownWinner);
 
             Assertions.assertEquals(Optional.empty(), scoreBoard.winner());
         }

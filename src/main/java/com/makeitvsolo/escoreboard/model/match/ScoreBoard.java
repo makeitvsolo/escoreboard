@@ -30,7 +30,7 @@ public final class ScoreBoard {
             Player playerTwo,
             Zero<Score> score
     ) {
-        return new ScoreBoard(matchId.unique(), playerOne, playerTwo, score.zero(), ScoreState.MatchIsOngoing);
+        return new ScoreBoard(matchId.unique(), playerOne, playerTwo, score.zero(), ScoreState.UnknownWinner);
     }
 
     public UUID matchId() {
@@ -47,7 +47,7 @@ public final class ScoreBoard {
 
     public Optional<Player> winner() {
         return switch (state) {
-            case MatchIsOngoing -> Optional.empty();
+            case UnknownWinner -> Optional.empty();
 
             case PlayerOneWin -> Optional.of(playerOne);
 
@@ -57,7 +57,7 @@ public final class ScoreBoard {
 
     public void pointFor(UUID playerId) {
         switch (state) {
-            case MatchIsOngoing -> {
+            case UnknownWinner -> {
                 state = score.pointFor(playerId);
             }
 
