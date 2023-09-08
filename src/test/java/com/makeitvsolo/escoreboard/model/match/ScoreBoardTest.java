@@ -68,7 +68,7 @@ public class ScoreBoardTest {
         @Test
         @DisplayName("players can earn points and match continues")
         public void playersCanEarnPoints() {
-            Mockito.when(score.pointFor(playerOne.id()))
+            Mockito.when(score.pointFor(scoreBoard.numberOf(playerOne.id())))
                     .thenReturn(ScoreState.UnknownWinner);
 
             Assertions.assertEquals(Optional.empty(), scoreBoard.winner());
@@ -77,7 +77,7 @@ public class ScoreBoardTest {
         @Test
         @DisplayName("when player one wins, he's the winner.")
         public void whenPlayerOneWinsHeIsWinner() {
-            Mockito.when(score.pointFor(playerOne.id()))
+            Mockito.when(score.pointFor(scoreBoard.numberOf(playerOne.id())))
                     .thenReturn(ScoreState.PlayerOneWin);
 
             scoreBoard.pointFor(playerOne.id());
@@ -88,7 +88,7 @@ public class ScoreBoardTest {
         @Test
         @DisplayName("when player two wins, he's the winner.")
         public void whenPlayerTwoWinsHeIsWinner() {
-            Mockito.when(score.pointFor(playerTwo.id()))
+            Mockito.when(score.pointFor(scoreBoard.numberOf(playerTwo.id())))
                     .thenReturn(ScoreState.PlayerTwoWin);
 
             scoreBoard.pointFor(playerTwo.id());
@@ -102,7 +102,7 @@ public class ScoreBoardTest {
 
             @BeforeEach
             public void beforeEach() {
-                Mockito.when(score.pointFor(playerOne.id()))
+                Mockito.when(score.pointFor(scoreBoard.numberOf(playerOne.id())))
                         .thenReturn(ScoreState.PlayerOneWin);
 
                 scoreBoard.pointFor(playerOne.id());
