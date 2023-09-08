@@ -4,7 +4,7 @@ import com.makeitvsolo.escoreboard.model.scoring.Zero;
 
 public final class ZeroMatchScore implements Zero<MatchScore> {
 
-    ZeroMatchScore() {
+    public ZeroMatchScore() {
     }
 
     @Override
