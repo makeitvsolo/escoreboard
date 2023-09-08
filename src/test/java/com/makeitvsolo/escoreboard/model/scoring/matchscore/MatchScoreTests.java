@@ -22,8 +22,8 @@ public class MatchScoreTests {
     }
 
     @Test
-    @DisplayName("player wins when he earns two points; 2:0")
-    public void TwoZero() {
+    @DisplayName("player wins when he earns `2` points; 2:0")
+    public void twoZero() {
         matchScore = MatchScore.initial();
 
         IntStream.range(0, 1)
@@ -37,8 +37,8 @@ public class MatchScoreTests {
     }
 
     @Test
-    @DisplayName("player wins when he earns two points; 2:1")
-    public void TwoOne() {
+    @DisplayName("player wins when he earns `2` points; 2:1")
+    public void twoOne() {
         matchScore = MatchScore.initial();
 
         IntStream.range(0, 1)
