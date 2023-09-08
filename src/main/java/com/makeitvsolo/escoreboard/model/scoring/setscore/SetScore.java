@@ -34,6 +34,10 @@ public final class SetScore implements Score {
         var playerPoints = totalPointsOf(playerNumber);
         var otherPlayerPoints = totalPointsOf(playerNumber.other());
 
+        if (otherPlayerPoints >= WinPoint) {
+            return playerPoints > otherPlayerPoints;
+        }
+
         return playerPoints >= WinPoint &&
                        (playerPoints - otherPlayerPoints) >= WinCondition;
     }
