@@ -28,12 +28,12 @@ public class MatchScoreTests {
 
         IntStream.range(0, 1)
                 .forEach((round) -> {
-                    var scoreState = matchScore.pointFor(PlayerNumber.One);
-                    Assertions.assertEquals(ScoreState.UnknownWinner, scoreState);
+                    Assertions.assertEquals(ScoreState.UnknownWinner, matchScore.pointFor(PlayerNumber.One));
                 });
 
-        var scoreState = matchScore.pointFor(PlayerNumber.One);
-        Assertions.assertEquals(ScoreState.PlayerOneWin, scoreState);
+        Assertions.assertEquals(ScoreState.PlayerOneWin, matchScore.pointFor(PlayerNumber.One));
+        Assertions.assertEquals(2, matchScore.totalPointsOf(PlayerNumber.One));
+        Assertions.assertEquals(0, matchScore.totalPointsOf(PlayerNumber.Two));
     }
 
     @Test
@@ -47,7 +47,8 @@ public class MatchScoreTests {
                     Assertions.assertEquals(ScoreState.UnknownWinner, matchScore.pointFor(PlayerNumber.Two));
                 });
 
-        var scoreState = matchScore.pointFor(PlayerNumber.One);
-        Assertions.assertEquals(ScoreState.PlayerOneWin, scoreState);
+        Assertions.assertEquals(ScoreState.PlayerOneWin, matchScore.pointFor(PlayerNumber.One));
+        Assertions.assertEquals(2, matchScore.totalPointsOf(PlayerNumber.One));
+        Assertions.assertEquals(1, matchScore.totalPointsOf(PlayerNumber.Two));
     }
 }
